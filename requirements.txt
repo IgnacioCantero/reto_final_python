@@ -1,0 +1,8 @@
+Flask
+SQLAlchemy
+psycopg2-binary
+Flask-SQLAlchemy
+
+pytest
+pytest-flask
+coverage

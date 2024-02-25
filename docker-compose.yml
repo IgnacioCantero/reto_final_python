@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      FLASK_ENV: development
+      DATABASE_URI: postgresql://myuser:mypassword@db/mydatabase
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
